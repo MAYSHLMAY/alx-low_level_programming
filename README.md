@@ -4,7 +4,7 @@ Welcome to the **alx-low_level_programming** repository! This repository contain
 
 ## Author
 
-This repository is maintained by [Your Name](https://github.com/your-username).
+This repository is maintained by [Mikiyas Dawit](https://github.com/MAYSHLMAY).
 
 ## Contribution
 
