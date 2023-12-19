@@ -17,11 +17,12 @@ int main(void)
 	for (i = 0; i < 50; i++)
 	{
 		sum = first + second;
-		printf("%d", sum);
+		printf("%ld", sum);
 		if (i != 49)
 			printf("%s", ", ");
 		first = second;
 		second = sum;
 	}
+	printf("\n");
 	return (0);
 }
