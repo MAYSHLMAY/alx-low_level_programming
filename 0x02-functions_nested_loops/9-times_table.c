@@ -8,23 +8,24 @@
 
 void times_table(void)
 {
-	int i;
+	int i, j;
 
 	for (i = 0; i <= 9; i++)
 	{
-	int j;
 
 		for (j = 0; j <= 9; j++)
 		{
-			if ((j * i) <= 9)
+			int result = i * j;
+
+			if (result <= 9)
 			{
 				_putchar(' ');
-				_putchar((j * i) + '0');
+				_putchar(result + '0');
 			}
 			else
 			{
-				_putchar(((j * i) / 10) + '0');
-				_putchar(((j * i) % 10) + '0');
+				_putchar((result / 10) + '0');
+				_putchar((result % 10) + '0');
 			}
 			if (j != 9)
 			{
