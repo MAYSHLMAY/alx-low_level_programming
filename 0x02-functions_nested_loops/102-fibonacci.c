@@ -7,9 +7,9 @@ int main(void)
 
 	int second = 1;
 
-	int sum, temp;
+	int sum, temp, i;
 
-	for (int i = 0; i < 50; i++)
+	for (i = 0; i < 50; i++)
 	{
 		sum = first + second;
 		printf("%d", sum);
