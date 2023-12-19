@@ -8,9 +8,9 @@
 
 int main(void)
 {
-	int first = 0;
+	long int first = 0;
 
-	int second = 1;
+	long int second = 1;
 
 	long int sum, i;
 
