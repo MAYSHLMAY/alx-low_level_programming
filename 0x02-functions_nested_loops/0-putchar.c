@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * main - entry block
- * @void: no argument
- * Return: 0
- **/
+* main - entry block
+* @void: no argument
+* Return: 0
+**/
 int main(void)
 {
 _putchar('_');
@@ -15,7 +15,5 @@ _putchar('h');
 _putchar('a');
 _putchar('r');
 _putchar('\n');
-
 return 0;
-
 }
