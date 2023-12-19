@@ -12,7 +12,7 @@ int main(void)
 
 	int second = 1;
 
-	int sum, i;
+	long int sum, i;
 
 	for (i = 0; i < 50; i++)
 	{
