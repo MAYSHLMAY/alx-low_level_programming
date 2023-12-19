@@ -19,7 +19,7 @@ void print_times_table(int n)
 			{
 				int result = i * j;
 
-				if (result < 10)
+				if (result < n + 1)
 				{
 					 _putchar(' ');
 					 _putchar(result + '0');
@@ -29,7 +29,7 @@ void print_times_table(int n)
 					_putchar((result / 10) + '0');
 					 _putchar((result % 10) + '0');
 				}
-				if (j != 9)
+				if (j != n)
 				{
 					 _putchar(',');
 					 _putchar(' ');
