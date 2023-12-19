@@ -17,7 +17,7 @@ int main(void)
 		first = second;
 		second = sum;
 		if (sum % 2 == 0)
-			sum2 += sum
+			sum2 += sum;
 	}
 	printf("%li\n", sum2);
 	return (0);
