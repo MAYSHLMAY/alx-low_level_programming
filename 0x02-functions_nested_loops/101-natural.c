@@ -18,7 +18,7 @@ int main(void)
 		if (pt % 3 == 0 || pt % 5 == 0)
 			sum += pt;
 	}
-	printf("%d", sum);
+	printf("%d\n", sum);
 	return (0);
 }
 
