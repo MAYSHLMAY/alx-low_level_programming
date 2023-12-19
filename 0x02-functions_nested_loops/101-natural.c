@@ -3,7 +3,9 @@
 void main(void)
 {
 	int pt = 1024;
+
 	int sum = 0;
+
 	while (pt >= 3)
 	{
 		--pt;
