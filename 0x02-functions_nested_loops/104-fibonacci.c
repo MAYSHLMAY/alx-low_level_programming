@@ -16,7 +16,7 @@ int main(void)
 
 	a = 1;
 	b = 2;
-	printf("%u, %u", a, b);
+	printf("%lu, %lu", a, b);
 	for (i = 0; i < 96; i++)
 	{
 		c = a + b;
