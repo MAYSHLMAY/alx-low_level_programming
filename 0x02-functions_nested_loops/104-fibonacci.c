@@ -20,7 +20,7 @@ int main(void)
 	for (i = 0; i < 96; i++)
 	{
 		c = a + b;
-		printf(", %u", c);
+		printf(", %lu", c);
 		a = b;
 		b = c;
 	}
