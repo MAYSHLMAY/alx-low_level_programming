@@ -7,7 +7,7 @@ int main(void)
 
 	int second = 1;
 
-	int sum, temp, i;
+	int sum, i;
 
 	for (i = 0; i < 50; i++)
 	{
@@ -15,7 +15,6 @@ int main(void)
 		printf("%d", sum);
 		if (i != 49)
 			printf("%s", ", ");
-		temp = first;
 		first = second;
 		second = sum'
 	}
