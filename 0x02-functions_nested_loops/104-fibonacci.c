@@ -17,12 +17,19 @@ int main(void)
 	a = 1;
 	b = 2;
 	printf("%lu, %lu", a, b);
-	for (i = 0; i < 96; i++)
+	for (i = 2; i < 98; i++)
 	{
 		c = a + b;
 		printf(", %lu", c);
 		a = b;
 		b = c;
+
+		if (b < a)
+		{
+			b >>= 1;
+			a >>= 1;
+		}
+
 	}
 	printf("\n");
 	return (0);
