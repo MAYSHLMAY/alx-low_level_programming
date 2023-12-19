@@ -8,11 +8,11 @@
 
 int main(void)
 {
-	long long int first = 0;
+	long int first = 0;
 
-	long long int second = 1;
+	long int second = 1;
 
-	long long int sum, sum2, i;
+	long int sum, sum2, i;
 
 	for (i = 0; i < 4000000; i++)
 	{
