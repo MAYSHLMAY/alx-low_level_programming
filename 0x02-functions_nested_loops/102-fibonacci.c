@@ -16,7 +16,7 @@ int main(void)
 		if (i != 49)
 			printf("%s", ", ");
 		first = second;
-		second = sum'
+		second = sum;
 	}
 	return (0);
 }
