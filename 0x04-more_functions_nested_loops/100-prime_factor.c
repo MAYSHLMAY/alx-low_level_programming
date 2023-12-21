@@ -14,5 +14,6 @@ int main(void)
 	else
 		factor++;
 	}
-	return factor;
+	printf("%lu\n", n);
+	return (0);
 }
