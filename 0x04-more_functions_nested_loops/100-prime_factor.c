@@ -8,7 +8,7 @@ int main(void)
 {
 	unsigned long int factor = 2, n = 612852475143;
 
-	while (factor*factor <= n / 2)
+	while (factor <= 12057)
 	{
 	if (n % factor == 0)
 		n /= factor;
