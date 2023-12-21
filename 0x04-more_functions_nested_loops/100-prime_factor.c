@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-        unsigned long int factor, n = 612852475143;
+	unsigned long int factor, n = 612852475143;
 	while (factor <= n)
 	{
 	if (n % factor == 0)
