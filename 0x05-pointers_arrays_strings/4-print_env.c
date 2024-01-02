@@ -11,13 +11,17 @@
 void print_rev(char *s)
 {
 	int len;
+
 	int i;
-	while (*s != '\0')
+
+	chat *p = s;
+
+	while (*p != '\0')
 	{
-		s++;
+		p++;
 		len++;
 	}
-	for (i = len; i >= 0; i--)
+	for (i = len - 1; i >= 0; i--)
 		_putchar(*(s + i));
 	_putchar('\n');
 }
