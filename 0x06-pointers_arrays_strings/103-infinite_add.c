@@ -2,13 +2,14 @@
 #include <string.h>
 
 /**
- * rot13 - encodes a string in rot13
- * n1
- * n3
- * size_r
- * @r: string to be encoded
- * Return: the resulting strring
+ * infinite_add - adds two numbers stored as strings
+ * @n1: first number string
+ * @n2: second number string
+ * @r: buffer to store the result
+ * @size_r: size of the result buffer
+ * Return: pointer to the result string
  */
+
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
