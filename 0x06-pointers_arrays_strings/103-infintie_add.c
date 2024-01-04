@@ -1,82 +1,47 @@
 #include "main.h"
 
 /**
- * infinite_add - add 2 numbers together
- * @n1: text representation of 1st number to add
- * @n2: text representation of 2nd number to add
- * @r: pointer to buffer
+ * infinite_add - adds two numbers
+ * @n1: first number
+ * @n2: second number
+ * @r: buffer for result
  * @size_r: buffer size
- * Return: pointer to calling function
+ *
+ * Return: address of r or 0
  */
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int n1_len = arr_len(n1);
-	int n2_len = arr_len(n2);
-	int longest; /* Length of the longest string of numbers */
-	int sum, remainder;
-	int carry = 0;
-	int c; /* Counter for each digit added from the largest number */
-	int d; /* Counter for each digit added to the buffer */
-	int e; /* Counter for copying the reversed sum digits to the r buffer */
-	char temp; /* Temporary variable to store number while reversing array */
+	int i, j, k, l, m, n;
 
-	/* Find the longest of the two arrays */
-	if (n1_len > n2_len)
-		longest = n1_len;
-	else if (n2_len > n1_len)
-		longest = n2_len;
-	else
-		longest = n1_len;
-
-	for (c = longest - 1, d = 0; c >= 0; c--, d++, n1_len--, n2_len--)
-	{
-		if (n1_len <= 0)
-			sum = *(n2 + n2_len - 1) - '0';
-		else if (n2_len <= 0)
-			sum = *(n1 + n1_len - 1) - '0';
-		else
-			sum = (*(n2 + n2_len - 1) - '0') + (*(n1 + n1_len - 1) - '0');
-
-		sum += carry;
-		carry = 0;
-
-		if (sum >= 10)
-		{
-			remainder = sum - 10;
-			carry = 1;
-		}
-		else
-			remainder = sum;
-
-		*(r + d) = remainder + '0';
-	}
-
-	if (longest + carry >= size_r)
+	for (i = 0; n1[i]; i++)
+		;
+	for (j = 0; n2[j]; j++)
+		;
+	if (i > size_r || j > size_r)
 		return (0);
-
-	/* If there is a carry at the end of the sum, add 1 to the buffer */
-	if (carry)
-		r[d] = '1';
-
-	/* Reverse the numbers in the buffer */
-	for (e = 0; e < (longest / 2); e++)
+	m = 0;
+	for (i -= 1, j -= 1, k = 0; k < size_r - 1; i--, j--, k++)
 	{
-		temp = *(r + longest - e);
-		*(r + longest - e) = *(r + e);
-		*(r + e) = temp;
+		n = m;
+		if (i >= 0)
+			n += n1[i] - '0';
+		if (j >= 0)
+			n += n2[j] - '0';
+		if (i < 0 && j < 0 && n == 0)
+		{
+			break;
+		}
+		m = n / 10;
+		r[k] = n % 10 + '0';
 	}
-
-	/* *(r + e) = '\0'; */
+	r[k] = '\0';
+	if (i >= 0 || j >= 0 || m)
+		return (0);
+	for (k -= 1, l = 0; l < k; k--, l++)
+	{
+		m = r[k];
+		r[k] = r[l];
+		r[l] = m;
+	}
 	return (r);
-}
-
-int arr_len(char *str)
-{
-	int c = 0;
-
-	while (str[c] != '\0')
-		c++;
-
-	return (c);
 }
