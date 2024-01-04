@@ -1,27 +1,42 @@
 #include "main.h"
+#include "string.h"
 
-/**
- * rot13 - encodes a string in rot13
- * @s: string to be encoded
- * Return: the resulting strring
- */
-char *rot13(char *s)
-{
-	int i, j;
+char * infinite_add(char * n1, char * n2, char * r, int size_r) {
+  int len1 = strlen(n1);
+  int len2 = strlen(n2);
+  int carry = 0;
+  int sum;
 
-	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+  if (len1 > size_r || len2 > size_r) {
+    return 0; // Result cannot be stored in r
+  }
 
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		for (j = 0; a[j] != '\0'; j++)
-		{
-			if (s[i] == a[j])
-			{
-				s[i] = b[j];
-				break;
-			}
-	    }
-	}
-	return (s);
+  int i = len1 - 1;
+  int j = len2 - 1;
+  int k = size_r - 1;
+
+  r[k] = '\0'; // Null-terminate the result string
+
+  while (i >= 0 || j >= 0) {
+    int digit1 = (i >= 0) ? n1[i] - '0' : 0;
+    int digit2 = (j >= 0) ? n2[j] - '0' : 0;
+
+    sum = digit1 + digit2 + carry;
+    carry = sum / 10;
+    r[k] = (sum % 10) + '0';
+
+    i--;
+    j--;
+    k--;
+  }
+
+  if (carry > 0) {
+    if (k == 0) {
+      return 0; // Result cannot be stored in r
+    }
+
+    r[k] = carry + '0';
+  }
+
+  return r;
 }
