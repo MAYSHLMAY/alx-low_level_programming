@@ -20,7 +20,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int i, j, k;
 
 	if (len1 > size_r - 1 || len2 > size_r - 1)
-   	     return (0);
+		return (0);
 
 	i = len1 - 1;
 	j = len2 - 1;
@@ -44,9 +44,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (carry > 0)
 	{
 		if (k < 0)
-			return 0;
-        r[k] = carry + '0';
+			return (0);
+	r[k] = carry + '0';
 	}
 
-	return r;
+	return (r);
 }
