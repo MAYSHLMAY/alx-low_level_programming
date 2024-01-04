@@ -9,15 +9,21 @@
 
 char *rot13(char *s)
 {
-	char *end = s;
+        int i;
+        int j;
+        char main[] = "ABCDEFJHIJKLMNOPQRSTUVWXYZabcdefjhijklmnopqrstuvwxyz";
+        char rotter[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (*end != '\0')
-	{
-		if ((*end >= 'a' && *end <= 'm') || (*end >= 'A' && *end <= 'M'))
-			*end += 13;
-		else if ((*end >= 'n' && *end <= 'z') || (*end >= 'N' && *end <= 'Z'))
-			*end -= 13;
-		end++;
-	}
-	return (s);
+        for (i = 0; s[i] != '\0'; i++)
+        {
+                for (j = 0; j < 52; j++)
+                {
+                        if (s[i] == main[j])
+                        {
+                                s[i] = rotter[j];
+                                break;
+                        }
+                }
+        }
+        return (s);
 }
