@@ -5,8 +5,11 @@
  * @s: An input string to encode using rot13
  * Return: An encode string
  */
-char *rot13(char *str) {
-	char *end = str;
+
+
+char *rot13(char *s)
+{
+	char *end = s;
 
 	while (*end != '\0')
 	{
@@ -16,5 +19,5 @@ char *rot13(char *str) {
 			*end -= 13;
 		end++;
 	}
-	return str;
+	return (s);
 }
