@@ -1,42 +1,82 @@
 #include "main.h"
-#include "string.h"
 
-char * infinite_add(char * n1, char * n2, char * r, int size_r) {
-  int len1 = strlen(n1);
-  int len2 = strlen(n2);
-  int carry = 0;
-  int sum;
+/**
+ * infinite_add - add 2 numbers together
+ * @n1: text representation of 1st number to add
+ * @n2: text representation of 2nd number to add
+ * @r: pointer to buffer
+ * @size_r: buffer size
+ * Return: pointer to calling function
+ */
 
-  if (len1 > size_r || len2 > size_r) {
-    return 0; // Result cannot be stored in r
-  }
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
+{
+	int n1_len = arr_len(n1);
+	int n2_len = arr_len(n2);
+	int longest; /* Length of the longest string of numbers */
+	int sum, remainder;
+	int carry = 0;
+	int c; /* Counter for each digit added from the largest number */
+	int d; /* Counter for each digit added to the buffer */
+	int e; /* Counter for copying the reversed sum digits to the r buffer */
+	char temp; /* Temporary variable to store number while reversing array */
 
-  int i = len1 - 1;
-  int j = len2 - 1;
-  int k = size_r - 1;
+	/* Find the longest of the two arrays */
+	if (n1_len > n2_len)
+		longest = n1_len;
+	else if (n2_len > n1_len)
+		longest = n2_len;
+	else
+		longest = n1_len;
 
-  r[k] = '\0'; // Null-terminate the result string
+	for (c = longest - 1, d = 0; c >= 0; c--, d++, n1_len--, n2_len--)
+	{
+		if (n1_len <= 0)
+			sum = *(n2 + n2_len - 1) - '0';
+		else if (n2_len <= 0)
+			sum = *(n1 + n1_len - 1) - '0';
+		else
+			sum = (*(n2 + n2_len - 1) - '0') + (*(n1 + n1_len - 1) - '0');
 
-  while (i >= 0 || j >= 0) {
-    int digit1 = (i >= 0) ? n1[i] - '0' : 0;
-    int digit2 = (j >= 0) ? n2[j] - '0' : 0;
+		sum += carry;
+		carry = 0;
 
-    sum = digit1 + digit2 + carry;
-    carry = sum / 10;
-    r[k] = (sum % 10) + '0';
+		if (sum >= 10)
+		{
+			remainder = sum - 10;
+			carry = 1;
+		}
+		else
+			remainder = sum;
 
-    i--;
-    j--;
-    k--;
-  }
+		*(r + d) = remainder + '0';
+	}
 
-  if (carry > 0) {
-    if (k == 0) {
-      return 0; // Result cannot be stored in r
-    }
+	if (longest + carry >= size_r)
+		return (0);
 
-    r[k] = carry + '0';
-  }
+	/* If there is a carry at the end of the sum, add 1 to the buffer */
+	if (carry)
+		r[d] = '1';
 
-  return r;
+	/* Reverse the numbers in the buffer */
+	for (e = 0; e < (longest / 2); e++)
+	{
+		temp = *(r + longest - e);
+		*(r + longest - e) = *(r + e);
+		*(r + e) = temp;
+	}
+
+	/* *(r + e) = '\0'; */
+	return (r);
+}
+
+int arr_len(char *str)
+{
+	int c = 0;
+
+	while (str[c] != '\0')
+		c++;
+
+	return (c);
 }
