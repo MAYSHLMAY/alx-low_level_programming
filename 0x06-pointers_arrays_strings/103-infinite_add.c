@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * rot13 - encodes a string in rot13
+ * n1
+ * n3
+ * size_r
+ * @r: string to be encoded
+ * Return: the resulting strring
+ */
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int len1 = strlen(n1);
