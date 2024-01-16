@@ -1,4 +1,3 @@
-
 #include "main.h"
 #include "stdlib.h"
 
@@ -27,4 +26,3 @@ char *create_array(unsigned int size, char c)
 	p[i] = '\0';
 	return (p);
 }
-
