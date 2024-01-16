@@ -1,4 +1,5 @@
 #include "main.h"
+#include "stdlib.h"
 
 char *_strdup(char *str)
 {
@@ -8,16 +9,23 @@ char *_strdup(char *str)
 	len = 0;
 	i = 0;
 
+	if (str == NULL)
+		return (NULL);
+
 	while (str[len])
 		len++;
 
-	dup = (char *)malloc(sizeof(char) * len);
+	dup = (char *)malloc(sizeof(char) * (len + 1));
 
-	while (i < len)
+	if (dup == NULL)
+		return (NULL);
+
+	while (i < len && str[i] != '\0')
 	{
-		len[i] = str[i];
+		dup[i] = str[i];
 		i++;
 	}
+	dup[i] = '\0';
 
-	return (str);
+	return (dup);
 }
