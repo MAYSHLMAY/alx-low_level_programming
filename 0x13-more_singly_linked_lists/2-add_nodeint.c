@@ -4,7 +4,7 @@
 /**
  * add_nodeint - adds a new node at the beginning.
  * @head: first node pointer.
- * n: value
+ * @n: value
  * Return: Integer.
  **/
 
