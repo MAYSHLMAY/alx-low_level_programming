@@ -1,0 +1,8 @@
+CC = gcc
+SRC = main.c util.c
+EXEC = school
+
+all: $(EXEC)
+
+$(EXEC): $(SRC)
+	$(CC) -o $@ $^
