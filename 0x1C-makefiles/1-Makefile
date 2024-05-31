@@ -2,7 +2,5 @@ CC = gcc
 SRC = main.c util.c
 EXEC = school
 
-all: $(EXEC)
-
-$(EXEC): $(SRC)
+all: $(SRC)
 	$(CC) -o $@ $^
