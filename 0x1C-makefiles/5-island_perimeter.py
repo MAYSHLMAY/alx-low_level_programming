@@ -1,30 +1,23 @@
+#!/usr/bin/python3
+
+
 def island_perimeter(grid):
-    """Returns the perimeter of the island described in grid.
-
+    """returns the perim of the island
     Args:
-        grid (list): A list of lists of ints 0 and 1
-
-    Returns:
-        int: The perimeter of the island.
+         grid (list) = list of integers
     """
+
     width = len(grid[0])
     height = len(grid)
-    perim = 0
+    edges = 0
+    size = 0
 
     for i in range(height):
         for j in range(width):
             if grid[i][j] == 1:
-                # Check the left edge
-                if j == 0 or grid[i][j-1] == 0:
-                    perim += 1
-                # Check the right edge
-                if j == width - 1 or grid[i][j+1] == 0:
-                    perim += 1
-                # Check the top edge
-                if i == 0 or grid[i-1][j] == 0:
-                    perim += 1
-                # Check the bottom edge
-                if i == height - 1 or grid[i+1][j] == 0:
-                    perim += 1
-
-    return perim
+                size += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    edges += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    edges += 1
+    return size * 4 - edges * 2
